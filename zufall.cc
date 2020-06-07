@@ -6,7 +6,7 @@ using namespace std;
 
 ofstream fout("tabelle.txt");
 
-static int I_j = 20; //Seed
+static int I_j = 100; //Seed
 double u_i;
 string d1;
 
@@ -14,11 +14,11 @@ double zufall(int a, int c ,int m){
 
   I_j = (a * I_j + c) % m;
   
-  return u_i=1.0*(I_j)/m;
+  return u_i= (double) (I_j)/m;
 
 }
 
-void schreiben(int a, int c, int m, int N) {
+void berechne(int a, int c, int m, int N) {
 
   int N_in=0;
 
@@ -34,7 +34,7 @@ void schreiben(int a, int c, int m, int N) {
     }
   } 
   
-  double pi = 4.0* N_in / N;
+  double pi = (double) 4*N_in / N;
   double p = 3.14159/4;
   double E = p*N;
   double V = E*(1-p);
@@ -52,8 +52,8 @@ int main() {
 
   for(int i=2; i<7; ++i) {
     if(i!=3) {
-      schreiben(5,3,16,pow(10,i));
-      schreiben(205,29573,139968,pow(10,i));
+      berechne(5,3,16,pow(10,i));
+      berechne(205,29573,139968,pow(10,i));
     }
   }
 
